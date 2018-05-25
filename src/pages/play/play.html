@@ -1,0 +1,57 @@
+<ion-header>
+  <!-- <ion-navbar>
+    <ion-title>play</ion-title>
+  </ion-navbar> -->
+  <ion-item item-start>Score: {{playerData.score}}</ion-item>
+  <ion-item item-end>Vies: {{playerData.life}}</ion-item>
+</ion-header>
+
+<ion-content padding>
+
+  <p>{{currentQuestion.getTitle()}}</p>
+
+  <div *ngIf="isAnswerGiven">
+
+    <p>{{currentQuestion.comment}}</p>
+
+    <p *ngIf="isAnswerCorrect">Bonne réponse !</p>
+    <p *ngIf="!isAnswerCorrect">Mauvaise réponse !</p>
+
+    <button *ngIf="!gameOver" (click)="nextQuestion()" ion-button>
+      Suivante
+    </button>
+
+    <button *ngIf="gameOver" ion-button (click)="goToEnd()">
+      Score final
+    </button>
+
+  </div>
+
+  <div *ngIf="isUsedJoker">
+
+    <p>Joker</p>
+
+    <button (click)="nextQuestion()" ion-button>
+      Suivante
+    </button>
+
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <div *ngIf="isActionBarVisible">
+    <button item-start (click)="checkAnswer(true)">Vrai</button>
+
+    <div *ngIf="playerData.joker == 2" class="joker">
+      <img src="assets/imgs/joker-icon.png" (click)="useJoker()">
+      <img src="assets/imgs/joker-icon.png" (click)="useJoker()">
+    </div>
+
+    <div *ngIf="playerData.joker == 1" class="joker">
+      <img src="assets/imgs/joker-icon.png" (click)="useJoker()">
+    </div>
+
+    <button item-end (click)="checkAnswer(false)">Faux</button>
+  </div>
+</ion-footer>

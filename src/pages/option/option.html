@@ -1,0 +1,46 @@
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-6 class="option-col" padding>
+        Niveau
+      </ion-col>
+      <ion-col col-6>
+        <input
+          ion-button
+          type="button"
+          (click)="changeOptionValue('level')"
+          value="{{options.level[currentIndexes.level]}}">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 class="option-col" padding>
+        Thème
+      </ion-col>
+      <ion-col col-6>
+        <input
+          ion-button
+          type="button"
+          (click)="changeOptionValue('category')"
+          value="{{options.category[currentIndexes.category]}}">
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col col-6 class="option-col" padding>
+        Effets
+      </ion-col>
+      <ion-col col-6>
+        <input
+          ion-button
+          type="button"
+          (click)="changeOptionValue('effect')"
+          value="{{options.effect[currentIndexes.effect]}}">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <span (click)="goToHome()">Home</span>
+</ion-footer>
